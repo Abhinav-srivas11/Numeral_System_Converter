@@ -22,6 +22,7 @@ public class Main {
             System.out.println("The input radix or output radix are not valid integer. There is an error");
         }
         fractionalNumbers(sourceRadix, number, targetRadix);
+        //the below commented code if part of previous exercises
 //        switch (targetRadix) {
 //            case 1:
 //                System.out.println(convertOneBase(Integer.parseInt(number), targetRadix));
@@ -51,15 +52,19 @@ public class Main {
         int len = s.length();
         int count = 0;
         for (int i = 0; i < len; i++) {
-            // checks whether the character is not a digit
-            // if it is not a digit ,it will return false
+            // checks whether the character is a digit
+            // if it isa digit ,it will return true
             if (Character.isDigit(s.charAt(i))) {
                 count++;
             }
         }
+        //a if is being used to check for min and max radix in our project
+        //max is 36 because there are 0-9 and a-z i.e 10+26
+        //min cant be zero as atleast 1 element should exist and that will be our radix
         if(count == s.length()){
-            if(Integer.parseInt(s) <= 0 || Integer.parseInt(s) > 36) return  false;
+            if(Integer.parseInt(s) < 1 || Integer.parseInt(s) > 36) return  false;
         }
+        //this will return true only if all the elements in the input string are digits
         return count == s.length();
 
     }
